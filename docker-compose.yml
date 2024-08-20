@@ -1,0 +1,13 @@
+services:
+  crud_saas:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crud_saas
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+      - /app/node_modules
