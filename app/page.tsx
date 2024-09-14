@@ -4,10 +4,13 @@ import copenhagen from "@/public/copenhagen.jpg";
 import Image from "next/image";
 import { Typewriter , Cursor} from "react-simple-typewriter";
 import {useSession} from "next-auth/react";
+import { log } from "console";
 
 export default function Home() {
 
     const {data: session} = useSession();
+    console.log(session)
+
   return(
      <section className="w-full h-screen flex items-center justify-center flex-col gap-2">
        <Image

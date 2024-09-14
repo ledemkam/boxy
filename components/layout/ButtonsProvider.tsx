@@ -7,7 +7,7 @@ export default function ButtonsProvider() {
   return (
     <div className="flex flex-col space-y-4">
       <Button onClick={()=> signIn("google")}> Weiter mit Google  <Chrome/></Button>
-      <Button onClick={()=> signIn("github")}>Weiter mit Github  <Github/></Button>
+      <Button onClick={()=> signIn("github")}> Weiter mit GitHub  <Github/></Button>
     </div>
   )
 }
