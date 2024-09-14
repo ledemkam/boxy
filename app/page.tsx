@@ -1,9 +1,13 @@
 "use client"
+import ButtonsProvider from "@/components/layout/ButtonsProvider";
 import copenhagen from "@/public/copenhagen.jpg";
 import Image from "next/image";
 import { Typewriter , Cursor} from "react-simple-typewriter";
+import {useSession} from "next-auth/react";
 
-export default function page() {
+export default function Home() {
+
+    const {data: session} = useSession();
   return(
      <section className="w-full h-screen flex items-center justify-center flex-col gap-2">
        <Image
@@ -21,6 +25,7 @@ export default function page() {
               </span>
           </h1>
           <p className="my-2 text-center">Ein Abenteuer mit Digital folgen</p>
+           <ButtonsProvider/>
      
     </section>);
 }

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Nav from "../components/layout/Nav";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme/theme-provider";
+import SessionWrapper from "@/lib/SessionWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,15 +20,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange>
+      <SessionWrapper>
+          <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange>
 
-        <Nav />
-        {children}
-        </ThemeProvider>
+              <Nav />
+              {children}
+          </ThemeProvider>
+      </SessionWrapper>
       </body>
     </html>
   );
