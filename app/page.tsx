@@ -5,11 +5,15 @@ import Image from "next/image";
 import { Typewriter , Cursor} from "react-simple-typewriter";
 import {useSession} from "next-auth/react";
 import { log } from "console";
+import { redirect } from "next/navigation";
 
 export default function Home() {
 
     const {data: session} = useSession();
-    console.log(session)
+ 
+    if(session)(
+      redirect("/dashboard/notes")
+    )
 
   return(
      <section className="w-full h-screen flex items-center justify-center flex-col gap-2">
