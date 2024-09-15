@@ -3,9 +3,12 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { getUser } from "@/lib/actionsUsers";
 
 
 export default async function SettingsPage() {
+
+    const user = await getUser();
 
 
  
@@ -29,7 +32,7 @@ export default async function SettingsPage() {
           </CardHeader>
 
           <CardContent>
-          {/* {user?.image && (
+           {user?.image && (
               <Image 
                 src={user?.image} 
                 alt={`${user?.name}`}
@@ -37,18 +40,18 @@ export default async function SettingsPage() {
                 width={100}
                 height={100}
               />
-            )} */}
+            )}
             <div className="space-y-1 mb-2">
               <Label htmlFor="idUser">ID</Label>
-              <Input disabled name="idUser" type="text" id="idUser" placeholder="Votre e-mail" />
+              <Input disabled name="idUser" type="text" id="idUser" placeholder="Votre e-mail" defaultValue={user?.id || ""} />
             </div>
             <div className="space-y-1">
               <Label htmlFor="name">Nom</Label>
-              <Input name="name" type="text" id="name" placeholder="Votre nom"  />
+              <Input name="name" type="text" id="name" placeholder="Votre nom"  defaultValue={user?.name || ""} />
             </div>
             <div className="space-y-1 mt-2">
               <Label htmlFor="email">Email</Label>
-              <Input disabled name="email" type="email" id="email" placeholder="Votre e-mail"  />
+              <Input disabled name="email" type="email" id="email" placeholder="Votre e-mail" defaultValue={user?.email || ""}  />
             </div>
           </CardContent>
 
