@@ -2,6 +2,7 @@
 import { redirect } from "next/navigation";
 import prisma from "../db";
 import { getUser } from "./actionsUsers"
+import { revalidatePath } from "next/cache";
 
 
   export const getAllNotes = async (userId: string) => {
@@ -42,4 +43,14 @@ export const createNoten = async(formData:FormData) => {
    })
    redirect("/dashboard/notes")
 
+}
+
+export const deleteNote = async(formData:FormData) => {
+  const id = formData.get("id") as string
+  await prisma.notes.delete({
+    where: {
+      id
+    }
+  })
+  revalidatePath("/dashboard/notes")
 }
