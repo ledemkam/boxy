@@ -15,7 +15,7 @@ export default async function DashboardPage() {
         <div className="flex md:items-center md:justify-between flex-col md:flex-row px-2">
           <div className="grid gap-1">
             <h2 className="text-3xl uppercase font-black">Noten</h2>
-            <p className="text-lg text-muted-foreground">Verlieren Sie nicht Ihre Ideen und erstellen Sie eine Notiz</p>
+            <p className="text-lg text-muted-foreground">Verlieren Sie nicht Ihre Ideen und erstellen Sie ein Notiz</p>
             <div className="w-12 h-[1px] bg-white my-2 mx-1"></div>
           </div>
         <Button asChild>

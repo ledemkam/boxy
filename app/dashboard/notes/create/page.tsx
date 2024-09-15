@@ -24,7 +24,7 @@ export default function CreatePage() {
           </div>
 
           <div className="gap-y-2 flex flex-col">
-            <Label htmlFor="completed">in der Warteschleife | vollständig</Label>
+            <Label htmlFor="completed">Warten | Vollständig</Label>
             <Input className="w-6 cursor-pointer accent-orange-500"  type="checkbox" name="completed" id="completed" />
           </div>
         </CardContent>
