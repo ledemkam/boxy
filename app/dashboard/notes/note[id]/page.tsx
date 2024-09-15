@@ -35,12 +35,12 @@ export default async function CreatePage({ params }: UpdatePageProps) {
         </CardHeader>
         <CardContent className="flex flex-col gap-y-5">
           <div className="gap-y-2 flex flex-col">
-            <Label htmlFor="title">Titre</Label>
+            <Label htmlFor="title">Titel</Label>
             <Input defaultValue="" placeholder="Titre de votre note"  type="text" name="title" id="title"/>
           </div>
           <div className="gap-y-2 flex flex-col">
-            <Label htmlFor="description">Beschreibung</Label>
-            <Textarea defaultValue=""  placeholder="Description de votre note"  name="description" id="description"/>
+            <Label htmlFor="beschreibung">Beschreibung</Label>
+            <Textarea defaultValue=""  placeholder="Beschreibung der Noten"  name="beschreibung" id="beschreibung"/>
           </div>
 
           <div className="gap-y-2 flex flex-col">

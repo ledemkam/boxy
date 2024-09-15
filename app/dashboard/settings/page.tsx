@@ -4,8 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { getUser, updateUser } from "@/lib/actionsUsers";
 import { toast } from "react-toastify";
+import { updateUser ,getUser} from "@/lib/action/actionsUsers";
 
 
 export default async function SettingsPage() {

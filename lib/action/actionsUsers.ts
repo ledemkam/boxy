@@ -1,10 +1,10 @@
 "use server"
 
 import { getServerSession } from "next-auth"
-import { authOptions } from "./AuthOptions"
 import { redirect } from "next/navigation"
-import prisma from "./db"
 import { revalidatePath } from "next/cache"
+import prisma from "../db"
+import { authOptions } from "../AuthOptions"
 
 
 export const getUser = async() => {
