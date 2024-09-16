@@ -19,20 +19,12 @@ import { revalidatePath } from "next/cache";
   }
 
 
-
-
-
-
-
 export const createNoten = async(formData:FormData) => {
   const user = await getUser()
-
   const title = formData.get("title") as string;
   const beschreibung = formData.get("description") as string;
   const completed = formData.get("completed")
   const userId = user?.id as string
-
-
    await prisma.notes.create({
       data: {
         userId: userId,
@@ -42,7 +34,6 @@ export const createNoten = async(formData:FormData) => {
       }
    })
    redirect("/dashboard/notes")
-
 }
 
 export const deleteNote = async(formData:FormData) => {
@@ -53,4 +44,13 @@ export const deleteNote = async(formData:FormData) => {
     }
   })
   revalidatePath("/dashboard/notes")
+}
+
+export const getOneNote = async(id: string) => {
+  const note = await prisma.notes.findUnique({
+    where: {
+      id:id
+    }
+  })
+  return note
 }
