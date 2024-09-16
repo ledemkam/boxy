@@ -1,16 +1,17 @@
-
 import {Button} from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
-
+import { createCustomerPortal, createSubscription, getDataStripeUser } from "@/lib/action/actionsStripe";
 import Image from "next/image"
 import BadgePremium from "@/public/badge-premium.svg"
+import { getUser } from "@/lib/action/actionsUsers";
 
 
 
 
 export default async function PaiementPage() {
  
+  const user = await getUser();
+  const dataStripe = await getDataStripeUser(user?.id as string);
 
   const itemsPremium = [
     {name: "Farbgenerator"},
@@ -19,7 +20,26 @@ export default async function PaiementPage() {
     {name: "Bildkompressor"},
   ]
 
-  
+  if(dataStripe?.status === 'active'){
+    return (
+      <div className="max-w-lg mx-auto space-y-4 mt-3">
+      <Card className="flex-flex-col ">
+        <CardContent className="py-8">
+          <div>
+            <h3 className="text-md font-black uppercase bg-orange-900 bg-opacity-20 text-orange-500 p-3 rounded-md inline">Pass Premium</h3>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">Modifier votre abonemment premiun</p>
+          <Image src={BadgePremium} width={100} height={100} alt="badge" className="block my-4" />
+     
+            <form className="w-full mt-4" action={createCustomerPortal}>
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white w-full">Modifier abonnement</Button>
+            </form>
+      
+        </CardContent>
+      </Card>
+    </div>
+    )
+  }
 
 
 
