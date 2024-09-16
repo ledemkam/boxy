@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
-import { getOneNote } from "@/lib/action/actionsNoten";
+import { getOneNote, updateNote } from "@/lib/action/actionsNoten";
 
 interface Params {
   id: string ;
@@ -25,7 +25,8 @@ export default async function CreatePage({ params }: UpdatePageProps) {
 
   return (
     <Card>
-      <form action="">
+      <form action={updateNote}>
+        <Input type="hidden" name="id" id="id" defaultValue={note?.id as string}/>
         <CardHeader>
           <CardTitle>Neue Notiz</CardTitle>
           <CardDescription>Vergessen Sie nicht etwas zu notieren</CardDescription>
@@ -46,10 +47,10 @@ export default async function CreatePage({ params }: UpdatePageProps) {
           </div>
         </CardContent>
         <CardFooter className="flex items-center justify-between">
-          <Button className="bg-red-500 mx-1 my-2 hover:bg-red-600 text-white" type="submit">
+          <Button className="bg-red-500 mx-1 my-2 hover:bg-red-600 text-white" type="button">
             <Link href="/dashboard/notes">Stornieren</Link>
           </Button>
-          <Button className="bg-orange-500 mx-1 my-2 hover:bg-orange-600 text-white">Notiz Bearbeiten</Button>
+          <Button className="bg-orange-500 mx-1 my-2 hover:bg-orange-600 text-white" type="submit">Notiz Bearbeiten</Button>
         </CardFooter>
       </form>
 

@@ -1,20 +1,15 @@
-"use client"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { toast } from "react-toastify";
 import { updateUser ,getUser} from "@/lib/action/actionsUsers";
 
 
-export default async function SettingsPage() {
+export default async  function SettingsPage() {
 
     const user = await getUser();
 
-    const handleSubmit = () => {
-       toast.success("konto wurde erfolgreich bearbeitet")
-    }
  
   
 
@@ -25,7 +20,7 @@ export default async function SettingsPage() {
       <p className="text-lg text-muted-foreground">Ihre Profileinstellungen</p>
       <div className="w-12 h-[1px] bg-white my-2 mx-1"></div>
 
-      <form action={updateUser} onSubmit={handleSubmit}>
+      <form action={updateUser}>
         <input type="hidden" name="id" value={user?.id} />
 
         <Card>

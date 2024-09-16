@@ -54,3 +54,25 @@ export const getOneNote = async(id: string) => {
   })
   return note
 }
+
+
+
+export const updateNote = async (formData: FormData) => {
+  try {
+    const id = formData.get('id') as string;
+    const title = formData.get("title") as string
+    const description = formData.get("description") as string
+    const completed = formData.get("completed")
+
+    if (title !== null || description !== null) {
+      await prisma.notes.update({
+        where: { id },
+        data: { title: title, description: description, completed: completed === "on" },
+      });
+    }
+  } catch (error) {
+    console.error('Error updating note:', error);
+  } finally {
+    redirect('/'); 
+  }
+}
