@@ -33,7 +33,7 @@ export default async function PaiementPage() {
             <h3 className="text-md font-black uppercase bg-orange-900 bg-opacity-20 text-orange-500 p-3 rounded-md inline">Pass Premium</h3>
           </div>
           <div className="mt-4 text-6xl font-black ">
-            <span>1.99€</span> <span className="text-sm text-muted-foreground">/ monatlich</span>
+            <span>25.00€</span> <span className="text-sm text-muted-foreground">/ monatlich</span>
           </div>
           <p className="mt-4 text-muted-foreground">Entdecken Sie mit unserem Premium-Pass die exklusiven Freuden der Premium-Webentwicklung und genießen Sie ein einzigartiges Erlebnis!</p>
           <div className="flex-1 flex flex-col justify-between px6 py-6 bg-secondary rounded-lg m-1 space-t-6 p-3 mt-4">
