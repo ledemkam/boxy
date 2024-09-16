@@ -1,5 +1,6 @@
 // @ts-ignore
 import Stripe from "stripe"
+//const Stripe = require("stripe")
 
 import { headers } from "next/headers"
 import { stripe } from "@/lib/stripe"
